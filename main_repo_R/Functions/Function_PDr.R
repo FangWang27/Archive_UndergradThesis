@@ -1,0 +1,14 @@
+# the function return the modified Dixon's statistics for Pareto distribution
+
+PDr <- function(x, r = 0) {
+  # takes a vector x and return the Dixon's statistics
+  # x : the vector x
+  # r : number of contamination
+  x <- log(x[order(x)])
+  n <- length(x)
+  if (x[n] == 0) {
+    warning("the maximum observation is 0")
+  } else {
+    return((x[n] - x[n - r]) / x[n])
+  }
+}
